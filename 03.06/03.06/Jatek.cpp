@@ -1,8 +1,29 @@
 #include "Jatek.hpp"
 
-Jatek::Jatek(){
-	for (int i = 0; i < 10; i++){
-		for (int j = 0; j < 10; j++){
+Jatek::Jatek():size(10),tabla(NULL){
+	tabla = new int*[size];
+	for (int i = 0; i < size; i++){
+		tabla[i] = new int[size];
+	}
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
+			tabla[i][j] = 0;
+		}
+	}
+	xkov = true;
+	lastx[0] = -1;
+	lastx[1] = -1;
+	lasty[0] = -1;
+	lasty[1] = -1;
+}
+
+Jatek::Jatek(int size):size(size){
+	tabla = new int*[size];
+	for (int i = 0; i < size; i++){
+		tabla[i] = new int[size];
+	}
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
 			tabla[i][j] = 0;
 		}
 	}
@@ -14,9 +35,16 @@ Jatek::Jatek(){
 
 }
 
+Jatek::~Jatek(){
+	for (int i = 0; i < size; i++){
+		delete(tabla[i]);
+	}
+	delete tabla;
+}
+
 void Jatek::print() const{
-	for (int i = 0; i < 10; i++){
-		for (int j = 0; j < 10; j++){
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
 			std::cout << tabla[i][j]<<" ";
 		}
 		std::cout << "\n";
@@ -25,22 +53,22 @@ void Jatek::print() const{
 
 void Jatek::fancyPrint() const{
 	std::cout << "| - ";
-	for (int i = 0; i < 10; i++){
-		std::cout << "| " << i << " ";
+	for (int i = 0; i < size; i++){
+		std::cout << "| " << std::setfill(' ')<< std::setw(2) << i;
 	}
 	std::cout << "|\n";
-	std::cout << "---------------------------------------------\n";
-	for (int i = 0; i < 10; i++){
-		for (int j = 0; j < 10; j++){
+	std::cout << std::setfill('-')<<std::setw(size*4.5)<< "\n";
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
 			if (j == 0) {
-				std::cout << "| " << i << " | " << (tabla[i][j]==1 ? 'X': tabla[i][j]==2 ? 'Y':'0' );
+				std::cout << "|"<<std::setfill(' ')<<std::setw(2) << i << " | " << (tabla[i][j]==1 ? 'X': tabla[i][j]==2 ? 'Y':'0' );
 			}
 			else{
 				std::cout << " | " << (tabla[i][j] == 1 ? 'X' : tabla[i][j] == 2 ? 'Y' : '0');
 			}
 		}
 		std::cout << " |\n";
-		std::cout << "---------------------------------------------\n";
+		std::cout << std::setfill('-') << std::setw(size*4.5) << "\n";
 	}
 }
 
@@ -62,14 +90,14 @@ void Jatek::getMove(int x, int y){
 }
 
 bool Jatek::isValidMove(int x, int y) const{
-	if (x < 0 || x>9 || y < 0 || y>9) return false;
+	if (x < 0 || x>size-1 || y < 0 || y>size-1) return false;
 	else if (tabla[x][y]) return false;
 	else return true;
 }
 
 bool Jatek::isGameOver() const {
-	for (int i = 0; i < 10; i++){
-		for (int j = 0; j < 10; j++){
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
 			if (tabla[i][j]==0) return false;
 		}
 	}
@@ -104,7 +132,7 @@ bool Jatek::isFinished() const{
 	if (tmpx != -1){
 		/*függõleges*/
 		db = 0;
-		for (int i = 0; i < 9; i++){
+		for (int i = 0; i < size-1; i++){
 			if (tabla[i][tmpy] == szam) db++;
 			else if (db != 5){
 				db = 0;
@@ -117,7 +145,7 @@ bool Jatek::isFinished() const{
 
 		/*vízszintes*/
 		db = 0;
-		for (int i = 0; i < 9; i++){
+		for (int i = 0; i < size-1; i++){
 			if (tabla[tmpx][i] == szam) db++;
 			else if (db != 5){
 				db = 0;
@@ -133,11 +161,13 @@ bool Jatek::isFinished() const{
 		db = 0;
 		int i = tmpx;
 		int j = tmpy;
-		while (tabla[i-1][j-1] == szam){
+		while (i>0 && j>0 && tabla[i - 1][j - 1] == szam){
 			i--;
 			j--;
 		}
-		while (db < 5 && i < 9 && j < 9){
+		
+
+		while (db < 5 && i < size && j < size){
 			if (tabla[i][j] == szam){
 				db++;
 			}
@@ -157,11 +187,11 @@ bool Jatek::isFinished() const{
 		db = 0;
 		i = tmpx;
 		j = tmpy;
-		while (tabla[i - 1][j + 1] == szam){
+		while (i>0 && i<size-1 && j>0 && j<size-1 && tabla[i - 1][j + 1] == szam){
 			i--;
 			j++;
 		}
-		while (db < 5 && i < 9 && j>0){
+		while (db < 5 && i < size && j>=0){
 			if (tabla[i][j] == szam){
 				db++;
 			}

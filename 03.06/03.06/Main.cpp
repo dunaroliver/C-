@@ -2,7 +2,7 @@
 
 int main(){
 	int x, y;
-	Jatek jatek;
+	Jatek jatek(10);
 	while (!jatek.isGameOver() && !jatek.isFinished()){
 		jatek.fancyPrint();
 		if (jatek.isXkov()) std::cout << "X kovetkezik: ";

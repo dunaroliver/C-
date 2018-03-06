@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
 	//cout << "Hello world!\n"; /*std:: ha nincs using*/
-	Tester izebize(10,5,2);
+	Tester izebize(20,20,2);
 	//Tester izebize("palya.txt");
 
 	int dx, dy;
