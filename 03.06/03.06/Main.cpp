@@ -11,5 +11,6 @@ int main(){
 		std::cin >> y;
 		jatek.getMove(x, y);
 	}
+	if (!jatek.isGameOver()) jatek.print();
 
 }

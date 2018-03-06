@@ -81,6 +81,7 @@ bool Jatek::isFinished() const{
 	}
 
 	if (tmpx != -1){
+		/*függõleges*/
 		db = 0;
 		for (int i = 0; i < 9; i++){
 			if (tabla[i][tmpy] == szam) db++;
@@ -89,10 +90,11 @@ bool Jatek::isFinished() const{
 			}
 		}
 		if (db == 5){
-			std::cout << "%c nyert.\n", szam == 2 ? "Y" : "X";
+			printf("%c nyert.\n", szam == 2 ? 'Y' : 'X');
 			return true;
 		}
 
+		/*vízszintes*/
 		db = 0;
 		for (int i = 0; i < 9; i++){
 			if (tabla[tmpx][i] == szam) db++;
@@ -101,12 +103,58 @@ bool Jatek::isFinished() const{
 			}
 		}
 		if (db == 5){
-			std::cout << "%c nyert.\n", szam == 2 ? 'Y' : 'X';
+			printf("%c nyert.\n", szam == 2 ? 'Y' : 'X');
+			return true;
+		}
+
+
+		/*fõátló*/
+		db = 0;
+		int i = tmpx;
+		int j = tmpy;
+		while (tabla[i-1][j-1] == szam){
+			i--;
+			j--;
+		}
+		while (db < 5 && i < 9 && j < 9){
+			if (tabla[i][j] == szam){
+				db++;
+			}
+			else if (db != 5){
+				db = 0;
+			}
+			i++;
+			j++;
+		}
+		if (db == 5){
+			printf("%c nyert.\n", szam == 2 ? 'Y' : 'X');
+			return true;
+		}
+
+
+		/*mellékátló*/
+		db = 0;
+		i = tmpx;
+		j = tmpy;
+		while (tabla[i - 1][j + 1] == szam){
+			i--;
+			j++;
+		}
+		while (db < 5 && i < 9 && j>0){
+			if (tabla[i][j] == szam){
+				db++;
+			}
+			else if (db != 5){
+				db = 0;
+			}
+			i++;
+			j--;
+		}
+		if (db == 5){
+			printf("%c nyert.\n", szam == 2 ? 'Y' : 'X');
 			return true;
 		}
 	}
-
-
 	return false;
 }
 
