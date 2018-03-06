@@ -80,7 +80,6 @@
     <ClCompile Include="Tester.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Step.h" />
     <ClInclude Include="Tester.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

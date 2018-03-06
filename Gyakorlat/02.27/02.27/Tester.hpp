@@ -26,6 +26,7 @@ class Tester{
 		~Tester(); /*destruktor*/
 		void print() const;
 		bool isFinished() const;
+		bool isGameOver() const;
 		bool move(int dx, int dy);
 		void static setDefaultMaxdD(int newmaxd);
 		int **getMatrix();

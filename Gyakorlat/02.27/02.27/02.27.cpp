@@ -9,14 +9,17 @@ int main(){
 	//Tester izebize("palya.txt");
 
 	int dx, dy;
-	while (!izebize.isFinished()){
+	while (!izebize.isFinished()&&!izebize.isGameOver()){
 		do{
 			izebize.print();
 			cout << "Lepes pls: ";
 			cin >> dx;
 			cin >> dy;
-		} while (izebize.move(dx, dy));
+		} while (!izebize.move(dx, dy));
 	}
+	if (izebize.isFinished()) cout << "Yepeeeeee\n";
+	else if (izebize.isGameOver()) cout << "Next time.\n";
+	else cout << "Megmerted csinálni?!\n";
 	return 0;
 }
 

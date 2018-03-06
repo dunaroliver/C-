@@ -33,9 +33,9 @@ Tester::~Tester(){
 	} while (tmp != NULL);
 
 	for (int i = 0; i < width; i++){
-		delete matrix[i];
+		delete [] matrix[i];
 	}
-	delete matrix;
+	delete [] matrix;
 }
 void Tester::print() const{
 	int xossz, yossz;
@@ -65,6 +65,16 @@ void Tester::print() const{
 
 bool Tester::isFinished() const{
 	return x == (width - 1) && y == (height - 1);
+}
+
+bool Tester::isGameOver() const{
+	if (isFinished()) return false;
+	for (int dx = getLastStep()->dx - defaultmaxd; dx <= getLastStep()->dx + defaultmaxd; dx++){
+		for (int dy = getLastStep()->dy - defaultmaxd; dy <= getLastStep()->dy + defaultmaxd; dy++){
+			if (isCorrectNextStep(dx, dy)) return false;
+		}
+	}
+		return true;
 }
 
 bool Tester::isCorrectNextStep(int dx, int dy) const{
