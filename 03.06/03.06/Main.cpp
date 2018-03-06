@@ -1,5 +1,4 @@
 #include "Jatek.hpp"
-
 int main(){
 	int x, y;
 	Jatek jatek(10);
@@ -12,5 +11,4 @@ int main(){
 		jatek.getMove(x, y);
 	}
 	if (!jatek.isGameOver()) jatek.fancyPrint();
-
 }

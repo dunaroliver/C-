@@ -23,5 +23,6 @@ public:
 	bool isXkov() const;
 	void setXkov();
 	bool isFinished() const;
+	void resize();
 }; /*kell a ;*/
 #endif
