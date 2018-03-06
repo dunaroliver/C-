@@ -23,6 +23,27 @@ void Jatek::print() const{
 	}
 }
 
+void Jatek::fancyPrint() const{
+	std::cout << "| - ";
+	for (int i = 0; i < 10; i++){
+		std::cout << "| " << i << " ";
+	}
+	std::cout << "|\n";
+	std::cout << "---------------------------------------------\n";
+	for (int i = 0; i < 10; i++){
+		for (int j = 0; j < 10; j++){
+			if (j == 0) {
+				std::cout << "| " << i << " | " << (tabla[i][j]==1 ? 'X': tabla[i][j]==2 ? 'Y':'0' );
+			}
+			else{
+				std::cout << " | " << (tabla[i][j] == 1 ? 'X' : tabla[i][j] == 2 ? 'Y' : '0');
+			}
+		}
+		std::cout << " |\n";
+		std::cout << "---------------------------------------------\n";
+	}
+}
+
 void Jatek::getMove(int x, int y){
 	if (isValidMove(x, y)){
 		if (isXkov()){
@@ -37,7 +58,7 @@ void Jatek::getMove(int x, int y){
 		}
 		setXkov();
 	}
-	else std::cout << "Hibás lépés.\n";
+	else std::cout << "Hibas lepes.\n";
 }
 
 bool Jatek::isValidMove(int x, int y) const{

@@ -12,6 +12,7 @@ class Jatek{
 public:
 	Jatek();
 	void print() const;
+	void fancyPrint() const;
 	void getMove(int x, int y);
 	bool isValidMove(int x, int y) const;
 	bool isGameOver() const;
