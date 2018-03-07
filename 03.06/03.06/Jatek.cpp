@@ -74,26 +74,19 @@ void Jatek::fancyPrint() const{
 
 void Jatek::getMove(int x, int y){
 	if (isValidMove(x, y)){
-		if (isXkov()){
-			tabla[x][y] = 1;
-			lastx[0] = x;
-			lastx[1] = y;
-		}
-		else{
 			tabla[x][y] = 2;
 			lasty[0] = x;
 			lasty[1] = y;
+			setXkov();
 		}
-		setXkov();
 
-		if (x == size - 1 || y == size - 1){
+		/*if (x == size - 1 || y == size - 1){
 			resizeRight();
 		}
 
 		if (x == 0 || y == 0){
 			resizeLeft();
-		}
-	}
+		}*/
 	else std::cout << "Hibas lepes.\n";
 }
 
@@ -256,4 +249,130 @@ void Jatek::resizeLeft(){
 	delete tabla;
 	tabla = ujtabla;
 }
+
+int Jatek::getResult(int x, int y){
+	tabla[x][y] = 1;
+	int tmpx;
+	int tmpy;
+	int db;
+	int max = 0;
+
+	tmpx = lastx[0];
+	tmpy = lastx[1];
+	lastx[0] = x;
+	lasty[1] = y;
+
+	if (isFinished()){
+		lastx[0] = tmpx;
+		lastx[1] = tmpy;
+		tabla[x][y] = 0;
+		return 5;
+	}
+	else{
+		db = 0;
+		for (int i = 0; i < size - 1; i++){
+			if (tabla[i][y] == 1) db++;
+			else if (db != 5){
+				if (db > max){
+					max = db;
+				}
+				db = 0;
+			}
+		}
+
+
+		/*vízszintes*/
+		db = 0;
+		for (int i = 0; i < size - 1; i++){
+			if (tabla[x][i] == 1) db++;
+			else if (db != 5){
+				if (db > max){
+					max = db;
+				}
+				db = 0;
+			}
+		}
+
+
+
+		/*fõátló*/
+		db = 0;
+		int i = x;
+		int j = y;
+		while (i>0 && j>0 && tabla[i - 1][j - 1] == 1){
+			i--;
+			j--;
+		}
+
+
+		while (db < 5 && i < size && j < size){
+			if (tabla[i][j] == 1){
+				db++;
+			}
+			else if (db != 5){
+				if (db > max){
+					max = db;
+				}
+				db = 0;
+			}
+			i++;
+			j++;
+		}
+
+
+		/*mellékátló*/
+		db = 0;
+		i = x;
+		j = y;
+		while (i>0 && i<size - 1 && j>0 && j<size - 1 && tabla[i - 1][j + 1] == 1){
+			i--;
+			j++;
+		}
+		while (db < 5 && i < size && j >= 0){
+			if (tabla[i][j] == 1){
+				db++;
+			}
+			else if (db != 5){
+				if (db > max){
+					max = db;
+				}
+				db = 0;
+			}
+			i++;
+			j--;
+		}
+	}
+	lastx[0] = tmpx;
+	lastx[1] = tmpy;
+	tabla[x][y] = 0;
+	return max;
+
+}
+
+void Jatek::aiMove(){
+	int x, y;
+	int max = 0;
+	int tmp;
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < size; j++){
+			if (isValidMove(i, j)){
+				if (tmp=getResult(i, j) > max){
+					max = tmp;
+					x = i;
+					y = j;
+				}
+			}
+		}
+	}
+	tabla[x][y] = 1;
+	/*if (x == size - 1 || y == size - 1){
+		resizeRight();
+	}
+
+	if (x == 0 || y == 0){
+		resizeLeft();
+	}*/
+	setXkov();
+}
+
 

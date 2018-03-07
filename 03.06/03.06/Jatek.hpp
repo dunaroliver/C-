@@ -25,5 +25,7 @@ public:
 	bool isFinished() const;
 	void resizeRight();
 	void resizeLeft();
+	int getResult(int x, int y);
+	void aiMove();
 }; /*kell a ;*/
 #endif
