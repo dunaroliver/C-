@@ -87,7 +87,11 @@ void Jatek::getMove(int x, int y){
 		setXkov();
 
 		if (x == size - 1 || y == size - 1){
-			resize();
+			resizeRight();
+		}
+
+		if (x == 0 || y == 0){
+			resizeLeft();
 		}
 	}
 	else std::cout << "Hibas lepes.\n";
@@ -213,7 +217,7 @@ bool Jatek::isFinished() const{
 	return false;
 }
 
-void Jatek::resize(){
+void Jatek::resizeRight(){
 	size++;
 	int **ujtabla = new int*[size];
 	for (int i = 0; i < size; i++){
@@ -226,6 +230,26 @@ void Jatek::resize(){
 	for (int i = 0; i < size - 1; i++){
 		for (int j = 0; j < size - 1; j++){
 			ujtabla[i][j] = tabla[i][j];
+		}
+		delete(tabla[i]);
+	}
+	delete tabla;
+	tabla = ujtabla;
+}
+
+void Jatek::resizeLeft(){
+	size++;
+	int **ujtabla = new int*[size];
+	for (int i = 0; i < size; i++){
+		ujtabla[i] = new int[size];
+		for (int j = 0; j < size; j++){
+			ujtabla[i][j] = 0;
+		}
+	}
+
+	for (int i = 0; i < size-1; i++){
+		for (int j = 0; j < size-1; j++){
+			ujtabla[i+1][j+1] = tabla[i][j];
 		}
 		delete(tabla[i]);
 	}
