@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 class Jatek{
 	int **tabla;
 	bool xkov;
