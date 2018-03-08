@@ -1,5 +1,5 @@
-#ifndef TESTER HPP /*header guard*/
-#define TESTER HPP
+#ifndef JATEK HPP
+#define JATEK HPP
 
 #include <iostream>
 #include <iomanip>
@@ -19,7 +19,7 @@ public:
 	~Jatek();
 	void print() const;
 	void fancyPrint() const;
-	void getMove(int x, int y);
+	bool getMove(int x, int y);
 	bool isValidMove(int x, int y) const;
 	bool isGameOver() const;
 	bool isXkov() const;
@@ -29,5 +29,5 @@ public:
 	void resizeLeft();
 	int getResult(int x, int y);
 	void aiMove();
-}; /*kell a ;*/
+};
 #endif

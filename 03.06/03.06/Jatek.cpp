@@ -73,21 +73,30 @@ void Jatek::fancyPrint() const{
 	}
 }
 
-void Jatek::getMove(int x, int y){
+bool Jatek::getMove(int x, int y){
 	if (isValidMove(x, y)){
-		tabla[x][y] = 2;
-		lasty[0] = x;
-		lasty[1] = y;
-		setXkov();
-
+		if (isXkov()){
+			tabla[x][y] = 1;
+			lastx[0] = x;
+			lastx[1] = y;
+			setXkov();
+		}
+		else{
+			tabla[x][y] = 2;
+			lasty[0] = x;
+			lasty[1] = y;
+			setXkov();
+		}
 		if (x == size - 1 || y == size - 1){
 			resizeRight();
 		}
 		if (x == 0 || y == 0){
 			resizeLeft();
 		}
+		return true;
 	}
 	else std::cout << "Hibas lepes.\n";
+	return false;
 }
 
 bool Jatek::isValidMove(int x, int y) const{
