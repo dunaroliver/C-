@@ -256,7 +256,7 @@ void Jatek::resizeLeft(){
 	tabla = ujtabla;
 }
 
-int Jatek::getResult(int x, int y){
+int Jatek::getResult(int x, int y,int diff){
 	tabla[x][y] = 1;
 	int tmpx;
 	int tmpy;
@@ -402,13 +402,14 @@ int Jatek::getResult(int x, int y){
 	lastx[1] = tmpy;
 	tabla[x][y] = 0;
 
-	if(lasty[0]!=-1) min = getDefence(x, y);
-	if (min >= 4 && max < min) return min;
+	if (diff == 2){
+		if (lasty[0] != -1) min = getDefence(x, y);
+		if (min >= 4 && max < min) return min;
+	}
 	return max;
-
 }
 
-void Jatek::aiMove(){
+void Jatek::aiMove(int diff){
 	int x, y;
 	int max = 0;
 	int tmp;
@@ -416,7 +417,7 @@ void Jatek::aiMove(){
 	for (int i = 0; i < size; i++){
 		for (int j = 0; j < size; j++){
 			if (isValidMove(i, j)){
-				tmp = getResult(i, j);
+				tmp = getResult(i, j,diff);
 				if (tmp > max){
 					max = tmp;
 					x = i;

@@ -27,8 +27,8 @@ public:
 	bool isFinished() const;
 	void resizeRight();
 	void resizeLeft();
-	int getResult(int x, int y);
-	void aiMove();
+	int getResult(int x, int y,int diff);
+	void aiMove(int diff);
 	int getDefence(int x, int y);
 };
 #endif

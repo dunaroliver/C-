@@ -2,8 +2,9 @@
 
 void menu();
 int tablameret();
-bool PvAi(int size);
+bool PvAi(int size,int diff);
 bool PvP(int size);
+int nehezseg();
 
 int main(){
 	menu();
@@ -17,6 +18,7 @@ void menu(){
 	bool ok = false;
 	bool good = false;
 	int size;
+	int diff;
 	clock_t wait;
 	clock_t wait2;
 
@@ -40,8 +42,9 @@ void menu(){
 				if (!PvP(size)) ok = true;
 			}
 			else if(x==2){
+				diff = nehezseg();
 				size = tablameret();
-				if (!PvAi(size)) ok = true;
+				if (!PvAi(size,diff)) ok = true;
 			}
 			else ok = true;
 		}
@@ -74,7 +77,7 @@ int tablameret(){
 	} while (!ok);
 }
 
-bool PvAi(int size){
+bool PvAi(int size,int diff){
 	std::cin.clear();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	bool ok = false;
@@ -93,7 +96,7 @@ bool PvAi(int size){
 		while (wait2 != wait + 1000){
 			wait2 = clock();
 		}*/
-		jatek.aiMove();
+		jatek.aiMove(diff);
 		system("cls");
 		jatek.fancyPrint();
 		if (jatek.isFinished()){
@@ -191,5 +194,31 @@ bool PvP(int size){
 		else return false;
 	}
 	else return false;
+}
+
+int nehezseg(){
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	int x = 0;
+	bool ok = false;
+	std::cout << "Adja meg a kívánt nehézségi szintet!\nKönnyû: 1\nNehéz: 2\n";
+	do{
+		if (!(std::cin >> x)){
+			std::cout << "Csak egész szám elfogadott.\n";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else{
+			if (x!=1 && x!=2){
+				std::cout << "Csak 1 és 2 adható meg.\n";
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			else{
+				return x;
+				ok = true;
+			}
+		}
+	} while (!ok);
 }
 
