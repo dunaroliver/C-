@@ -87,10 +87,10 @@ bool Jatek::getMove(int x, int y){
 			lasty[1] = y;
 			setXkov();
 		}
-		if (x == size - 1 || y == size - 1){
+		if ((x == size - 1 || y == size - 1) && size<17){
 			resizeRight();
 		}
-		if (x == 0 || y == 0){
+		if ((x == 0 || y == 0) && size<17){
 			resizeLeft();
 		}
 		return true;
@@ -439,11 +439,11 @@ void Jatek::aiMove(int diff){
 	//std::cout << lastx[0] << " " << lastx[1] << "\n";
 
 
-	if (x == size - 1 || y == size - 1){
+	if ((x == size - 1 || y == size - 1 )&& size<17){
 		resizeRight();
 	}
 
-	if (x == 0 || y == 0){
+	if ((x == 0 || y == 0) && size<17){
 		resizeLeft();
 	}
 

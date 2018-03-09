@@ -1,20 +1,13 @@
-﻿Build started 2018.03.09. 12:25:55.
+﻿Build started 2018.03.09. 16:01:32.
      1>Project "C:\Users\Oliver\Desktop\Cpp\03.06 - Connect-5\03.06\03.06.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Jatek.cpp Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Jatek.cpp
          Jatek.cpp
      1>c:\users\oliver\desktop\cpp\03.06 - connect-5\03.06\Jatek.hpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
      1>Jatek.cpp(18): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
      1>Jatek.cpp(36): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
      1>Jatek.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'std::streamsize', possible loss of data
      1>Jatek.cpp(72): warning C4244: 'argument' : conversion from 'double' to 'std::streamsize', possible loss of data
-         Main.cpp
-     1>c:\users\oliver\desktop\cpp\03.06 - connect-5\03.06\Jatek.hpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>Main.cpp(17): warning C4101: 'y' : unreferenced local variable
-     1>Main.cpp(23): warning C4101: 'wait2' : unreferenced local variable
-     1>Main.cpp(22): warning C4101: 'wait' : unreferenced local variable
-     1>Main.cpp(89): warning C4101: 'wait2' : unreferenced local variable
-     1>Main.cpp(88): warning C4101: 'wait' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliver\Desktop\Cpp\03.06 - Connect-5\Release\03.06.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Oliver\Desktop\Cpp\03.06 - Connect-5\Release\03.06.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliver\Desktop\Cpp\03.06 - Connect-5\Release\03.06.lib" /MACHINE:X86 /SAFESEH Release\Jatek.obj
          Release\Main.obj
@@ -27,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.23
+Time Elapsed 00:00:00.85
