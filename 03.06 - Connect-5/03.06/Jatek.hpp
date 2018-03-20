@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 class Jatek{
 	int **tabla;
 	bool xkov;

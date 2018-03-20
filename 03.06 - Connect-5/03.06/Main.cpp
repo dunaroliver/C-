@@ -1,4 +1,5 @@
 #include "Jatek.hpp"
+#include <limits>
 
 void menu();
 int tablameret();
@@ -57,7 +58,7 @@ int tablameret(){
 	bool ok = false;
 	std::cout << "Adja meg a tábla kívánt kezdeti méretét.(8-10)\nA pálya késõbb dinamikusan nõni fog.\n";
 	do{
-		
+
 		if (!(std::cin >> x)){
 			std::cout << "Csak egész szám elfogadott.\n";
 			std::cin.clear();
@@ -152,7 +153,7 @@ bool PvP(int size){
 	int x;
 	int y;
 	Jatek jatek(size);
-	
+
 	jatek.fancyPrint();
 	while (!jatek.isGameOver() && !jatek.isFinished()){
 		do{

@@ -15,7 +15,7 @@ Jatek::Jatek():size(10),tabla(NULL){
 	lastx[1] = -1;
 	lasty[0] = -1;
 	lasty[1] = -1;
-	srand(time(nullptr));
+	srand(time(NULL));
 }
 
 Jatek::Jatek(int size):size(size){
@@ -33,7 +33,7 @@ Jatek::Jatek(int size):size(size){
 	lastx[1] = -1;
 	lasty[0] = -1;
 	lasty[1] = -1;
-	srand(time(nullptr));
+	srand(time(NULL));
 }
 
 Jatek::~Jatek(){
@@ -174,7 +174,7 @@ bool Jatek::isFinished() const{
 			i--;
 			j--;
 		}
-		
+
 
 		while (db < 5 && i < size && j < size){
 			if (tabla[i][j] == szam){
