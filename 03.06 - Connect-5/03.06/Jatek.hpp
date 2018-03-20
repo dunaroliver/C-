@@ -6,6 +6,14 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <locale>
+
+#ifdef _WIN32
+#define CLEAR "cls"
+#else //In any other OS
+#define CLEAR "clear"
+#endif
+
 class Jatek{
 	int **tabla;
 	bool xkov;

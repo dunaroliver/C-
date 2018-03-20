@@ -1,5 +1,4 @@
 #include "Jatek.hpp"
-#include <limits>
 
 void menu();
 int tablameret();
@@ -13,8 +12,8 @@ int main(){
 }
 
 void menu(){
-	system("chcp 1250");
-	system("cls");
+	setlocale(LC_ALL, "");
+	system(CLEAR);
 	int x=0, y;
 	bool ok = false;
 	bool good = false;
@@ -98,7 +97,7 @@ bool PvAi(int size,int diff){
 			wait2 = clock();
 		}*/
 		jatek.aiMove(diff);
-		system("cls");
+		system(CLEAR);
 		jatek.fancyPrint();
 		if (jatek.isFinished()){
 			ok = true;
@@ -112,7 +111,7 @@ bool PvAi(int size,int diff){
 					std::cin >> y;
 					if (std::cin.good()){
 						if (jatek.getMove(x, y)){
-							system("cls");
+							system(CLEAR);
 							jatek.fancyPrint();
 							if (jatek.isFinished()){
 								ok = true;
@@ -138,7 +137,7 @@ bool PvAi(int size,int diff){
 	}
 	std::cout << "\nSzeretne újat játszani?\nIgen: 1\nNem: 2\n";
 	std::cin >> x;
-	system("cls");
+	system(CLEAR);
 	if (std::cin.good()){
 		if (x == 1) return true;
 		else return false;
@@ -164,7 +163,7 @@ bool PvP(int size){
 				std::cin >> y;
 				if (std::cin.good()){
 					if (jatek.getMove(x, y)){
-						system("cls");
+						system(CLEAR);
 						jatek.fancyPrint();
 						good = true;
 					}
@@ -189,7 +188,7 @@ bool PvP(int size){
 	}
 	std::cout << "\nSzeretne újat játszani?\nIgen: 1\nNem: 2\n";
 	std::cin >> x;
-	system("cls");
+	system(CLEAR);
 	if (std::cin.good()){
 		if (x == 1) return true;
 		else return false;
