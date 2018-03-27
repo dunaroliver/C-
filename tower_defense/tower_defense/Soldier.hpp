@@ -1,5 +1,5 @@
-#ifndef SOLDIER HPP
-#define SOLDIER HPP
+#ifndef SOLDIER_HPP
+#define SOLDIER_HPP
 
 class Soldier{
 	int y;

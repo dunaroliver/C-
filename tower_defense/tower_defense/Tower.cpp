@@ -1,6 +1,6 @@
 #include "Tower.hpp"
 
-Tower::Tower(int x, int y, int rad, int dmg) :x(x), y(y), rad(rad), dmg(dmg){
+Tower::Tower(int x, int y, double rad, double dmg) :x(x), y(y), rad(rad), dmg(dmg){
 
 }
 
@@ -12,12 +12,16 @@ int Tower::getY()const{
 	return y;
 }
 
-int Tower::getR()const{
+double Tower::getR()const{
 	return rad;
 }
 
-int Tower::getDmg()const{
+double Tower::getDmg()const{
 	return dmg;
+}
+
+void Tower::print(){
+	std::cout << "x: " << x << ",y: " << y << ",r: " << rad << ", damage: " << dmg;
 }
 
 

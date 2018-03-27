@@ -12,7 +12,7 @@ Game::~Game(){
 }
 
 bool Game::addTower(Tower t){
-	towers.insert(t);
+	towers->insert(t);
 }
 bool addSoldier(Soldier *s);
 int getRound()const;
