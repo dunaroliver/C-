@@ -1,0 +1,44 @@
+﻿Build started 2018. 03. 27. 10:23:12.
+     1>Project "C:\Users\rpc-02\Desktop\tower_defense\tower_defense\tower_defense.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp Main.cpp Tower.cpp
+         Game.cpp
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.hpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.cpp(10): error C2440: 'delete' : cannot convert from 'std::list<Soldier,std::allocator<_Ty>>' to 'void*'
+                 with
+                 [
+                     _Ty=Soldier
+                 ]
+                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.cpp(11): error C2440: 'delete' : cannot convert from 'std::list<Tower,std::allocator<_Ty>>' to 'void*'
+                 with
+                 [
+                     _Ty=Tower
+                 ]
+                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.cpp(15): error C2819: type 'std::list<Tower,std::allocator<_Ty>>' does not have an overloaded member 'operator ->'
+                 with
+                 [
+                     _Ty=Tower
+                 ]
+                 did you intend to use '.' instead?
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.cpp(15): error C2232: '->std::list<Tower,std::allocator<_Ty>>::insert' : left operand has 'class' type, use '.'
+                 with
+                 [
+                     _Ty=Tower
+                 ]
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.cpp(18): error C2270: 'getRound' : modifiers not allowed on nonmember functions
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.cpp(21): error C2270: 'getX' : modifiers not allowed on nonmember functions
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.cpp(22): error C2270: 'getY' : modifiers not allowed on nonmember functions
+         Generating Code...
+         Compiling...
+         Main.cpp
+     1>c:\users\rpc-02\desktop\tower_defense\tower_defense\game.hpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         Tower.cpp
+     1>Done Building Project "C:\Users\rpc-02\Desktop\tower_defense\tower_defense\tower_defense.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.73
